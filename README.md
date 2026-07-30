@@ -14,14 +14,10 @@ An interactive and responsive plant-based recipe application for ICT 1209: Web T
 
 ## JavaScript Features
 
-1. Dynamic Content Updates Category filter without page reload (js/filter.js).
-2. Form Validation:Real-time user input feedback (js/validation.js).
-3. Smooth Scrolling: Scroll-to-top button (js/scroll.js).
-4. Event Handling & Visual Effects:Theme switching, staggered cards entrance and hover effect (css/styles.css, js/theme.js).
-
-
-
-
+01. Search & Filter: Search recipes by name and filter by category without reloading (js/search.js, js/filter.js).
+02. Dark Mode:* Dark and light theme switcher that saves user preference (js/theme.js).
+03. Form Validation: Real-time validation for user input forms (js/validation.js).
+04. UI Animations: Card hover animations and scroll-to-top button (js/hover.js, js/scroll.js).
 
 ## Team Members :
 
