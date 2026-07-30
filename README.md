@@ -1,4 +1,4 @@
-###Phase 1 – Proposal & Wireframes 
+##Phase 1 – Proposal & Wireframes 
 
 
 ## VeganFood - Digital Cookbook 
