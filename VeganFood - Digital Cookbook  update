@@ -1,0 +1,42 @@
+## VeganFood - Digital Cookbook 
+
+An interactive and responsive plant-based recipe application for ICT 1209: Web Technologies mini-project. 
+
+
+ ## Technology Stack
+
+- Frontend: HTML5, CSS3, Bootstrap 5 
+- Scripting:   JavaScript 
+- Version Control:GitHub 
+
+## JavaScript Features
+
+1. Dynamic Content Updates Category filter without page reload (js/filter.js).
+2. Form Validation:Real-time user input feedback (js/validation.js).
+3. Smooth Scrolling: Scroll-to-top button (js/scroll.js).
+4. Event Handling & Visual Effects:Theme switching, staggered cards entrance and hover effect (css/styles.css, js/theme.js).
+
+
+
+
+ ## Project Structure
+
+
+veganfood/
+├── assets/
+│   └── images/
+├── css/
+│   └── styles.css
+├── js/
+│   ├── filter.js
+│   ├── hover.js
+│   ├── scroll.js
+│   ├── search.js
+│   ├── theme.js
+│   └── validation.js
+├── index.html
+├── recipes.html
+├── contact.html
+├── login.html
+└── README.md
+
