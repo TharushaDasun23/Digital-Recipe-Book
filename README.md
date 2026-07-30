@@ -1,3 +1,6 @@
+###Phase 1 – Proposal & Wireframes 
+
+
 ## VeganFood - Digital Cookbook 
 
 An interactive and responsive plant-based recipe application for ICT 1209: Web Technologies mini-project. 
