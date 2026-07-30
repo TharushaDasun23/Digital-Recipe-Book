@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - VeganFood</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!--CSS File -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Theme-->
+    <script src="js/theme.js"></script>
+    <style>
+        .custom-search-input { border: 2px solid transparent; height: 48px; }
+    </style>
+</head>
+<body class="bg-body-tertiary d-flex flex-column min-vh-100">
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg bg-body shadow-sm">
+        <div class="container-fluid px-4">
+            <!-- Brand Logo -->
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo.svg" alt="VeganFood Logo" style="height: 60px !important; width: auto !important;">
+            </a>
+
+            <!-- Mobile-->
+            <div class="d-flex align-items-center gap-2 order-lg-last">
+                <!-- Dark Mode Button -->
+                <button id="themeToggleBtn" class="btn btn-outline-dark btn-sm rounded-pill">🌙 Dark Mode</button>
+
+                <!--Toggler Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <!--Navigation-->
+            <div class="collapse navbar-collapse justify-content-end me-lg-3" id="navbarNav">
+                <ul class="navbar-nav align-items-center text-center">
+                    <li class="nav-item"><a class="nav-link active fw-bold text-success" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="recipes.html">Recipes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item my-2 my-lg-0 ms-lg-3">
+                        <a class="btn btn-outline-success px-4 rounded-pill btn-sm fw-bold" href="login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-wrapper py-5">
+        <div class="container">
+            <div class="hero-box p-5 text-center bg-body-secondary rounded-4 shadow-sm">
+                <img src="assets/images/logo.svg" alt="VeganFood Logo" class="mb-3" style="height: 160px !important; width: auto !important;">
+                <p class="fs-5 mb-4 fw-semibold">Discover, save and share your favourite recipes</p>
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <form action="recipes.html" method="GET" class="d-flex" id="searchForm">
+                            <input type="text" id="searchInput" name="search" class="form-control rounded-pill px-4 custom-search-input" placeholder="Search recipes...">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popular Recipes-->
+    <div class="container my-5" id="popular-recipes">
+        <div class="mb-4"><h3 class="fw-bold">Popular Recipes</h3></div>
+        <div class="row g-4">
+            
+            <!-- Recipe Card 1 -->
+            <div class="col-md-3 col-sm-6 recipe-item" data-category="Sri Lankan">
+                <div class="card recipe-card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-body p-3">
+                    <img src="assets/images/recipe1.png" class="card-img-top rounded-4" alt="Pumpkin Curry" style="height: 180px; object-fit: cover;">
+                    <div class="card-body p-2 text-center d-flex flex-column justify-content-between">
+                        <div class="mb-3">
+                            <h6 class="card-title fw-bold mb-1">Sri Lankan Pumpkin Curry</h6>
+                            <p class="card-text text-muted small mb-0">Sri Lankan • 30 min</p>
+                        </div>
+                        <a href="#" class="btn btn-success text-white btn-sm w-100 rounded-pill py-2 shadow-sm view-recipe-btn">View Recipe →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe Card 2 -->
+            <div class="col-md-3 col-sm-6 recipe-item" data-category="Sri Lankan">
+                <div class="card recipe-card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-body p-3">
+                    <img src="assets/images/recipe2.png" class="card-img-top rounded-4" alt="Coconut Sambal" style="height: 180px; object-fit: cover;">
+                    <div class="card-body p-2 text-center d-flex flex-column justify-content-between">
+                        <div class="mb-3">
+                            <h6 class="card-title fw-bold mb-1">Sri Lankan Coconut Sambal</h6>
+                            <p class="card-text text-muted small mb-0">Sri Lankan • 10 min</p>
+                        </div>
+                        <a href="#" class="btn btn-success text-white btn-sm w-100 rounded-pill py-2 shadow-sm view-recipe-btn">View Recipe →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe Card 3 -->
+            <div class="col-md-3 col-sm-6 recipe-item" data-category="Italian">
+                <div class="card recipe-card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-body p-3">
+                    <img src="assets/images/recipe3.png" class="card-img-top rounded-4" alt="Avocado Pasta" style="height: 180px; object-fit: cover;">
+                    <div class="card-body p-2 text-center d-flex flex-column justify-content-between">
+                        <div class="mb-3">
+                            <h6 class="card-title fw-bold mb-1">Creamy Avocado Pasta</h6>
+                            <p class="card-text text-muted small mb-0">Italian • 15 min</p>
+                        </div>
+                        <a href="#" class="btn btn-success text-white btn-sm w-100 rounded-pill py-2 shadow-sm view-recipe-btn">View Recipe →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe Card 4 -->
+            <div class="col-md-3 col-sm-6 recipe-item" data-category="Indian">
+                <div class="card recipe-card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-body p-3">
+                    <img src="assets/images/recipe4.png" class="card-img-top rounded-4" alt="Chickpea Curry" style="height: 180px; object-fit: cover;">
+                    <div class="card-body p-2 text-center d-flex flex-column justify-content-between">
+                        <div class="mb-3">
+                            <h6 class="card-title fw-bold mb-1">Chickpea & Spinach Curry</h6>
+                            <p class="card-text text-muted small mb-0">Indian • 25 min</p>
+                        </div>
+                        <a href="#" class="btn btn-success text-white btn-sm w-100 rounded-pill py-2 shadow-sm view-recipe-btn">View Recipe →</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-body text-center py-4 border-top mt-auto">
+        <p class="text-muted mb-0">Copyright &copy; 2026 VeganFood. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!--JavaScript Files -->
+    <script src="js/hover.js"></script>
+    <script src="js/scroll.js"></script>
+    <script src="js/validation.js"></script>
+    <script src="js/search.js"></script>
+</body>
+</html>

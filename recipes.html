@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes - VeganFood</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- CSS File -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Theme-->
+    <script src="js/theme.js"></script>
+    <style>
+        .category-scroll { overflow-x: auto; white-space: nowrap; padding-bottom: 5px; }
+        .category-scroll::-webkit-scrollbar { height: 4px; }
+        .category-scroll::-webkit-scrollbar-thumb { background: #198754; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-body-tertiary d-flex flex-column min-vh-100">
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg bg-body shadow-sm">
+        <div class="container-fluid px-4">
+            <!-- Brand Logo -->
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/logo.svg" alt="VeganFood Logo" style="height: 60px !important; width: auto !important;">
+            </a>
+
+            <!-- Mobile-->
+            <div class="d-flex align-items-center gap-2 order-lg-last">
+                <!-- Dark Mode Button -->
+                <button id="themeToggleBtn" class="btn btn-outline-dark btn-sm rounded-pill">🌙 Dark Mode</button>
+
+                <!--Toggler Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <!--Navigation Links -->
+            <div class="collapse navbar-collapse justify-content-end me-lg-3" id="navbarNav">
+                <ul class="navbar-nav align-items-center text-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active fw-bold text-success" href="recipes.html">Recipes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item my-2 my-lg-0 ms-lg-3">
+                        <a class="btn btn-outline-success px-4 rounded-pill btn-sm fw-bold" href="login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Recipes Main Section -->
+    <div class="container my-5">
+        
+        <!-- Section Header and Search Input -->
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
+            <div>
+                <h2 class="fw-bold mb-0">Explore Recipes</h2>
+                <p class="text-muted small mb-0">Discover healthy and delicious plant-based meals</p>
+            </div>
+
+            <div class="d-flex gap-2 align-items-center flex-wrap">
+                <form action="recipes.html" method="GET" class="d-flex" id="searchForm" style="max-width: 320px;">
+                    <div class="input-group">
+                        <input type="text" id="searchInput" name="search" class="form-control rounded-start-pill px-3" placeholder="Search recipes...">
+                        <button type="submit" class="btn btn-success rounded-end-pill px-3">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Category & Cuisine Filter Buttons -->
+        <div class="category-scroll mb-4" id="categoryFilters">
+            <button class="btn btn-sm me-2 rounded-pill btn-success fw-bold filter-btn" data-filter="all">All Categories</button>
+            <button class="btn btn-sm me-2 rounded-pill btn-outline-secondary filter-btn" data-filter="Sri Lankan">Sri Lankan</button>
+            <button class="btn btn-sm me-2 rounded-pill btn-outline-secondary filter-btn" data-filter="Italian">Italian</button>
+            <button class="btn btn-sm me-2 rounded-pill btn-outline-secondary filter-btn" data-filter="Indian">Indian</button>
+            <button class="btn btn-sm me-2 rounded-pill btn-outline-secondary filter-btn" data-filter="Asian">Asian</button>
+        </div>
+
+        <!-- Recipe Cards Grid -->
+        <div class="row g-4" id="recipeGrid">
+
+            <!-- Recipe Card 1 -->
+            <div class="col-md-3 col-sm-6 recipe-item" data-category="Sri Lankan">
+                <div class="card recipe-card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-body p-3">
+                    <img src="assets/images/recipe1.png" class="card-img-top rounded-4" alt="Sri Lankan Pumpkin Curry" style="height: 180px; object-fit: cover;">
+                    <div class="card-body p-2 text-center d-flex flex-column justify-content-between">
+                        <div class="mb-3">
+                            <span class="badge bg-body-tertiary text-success border mb-2">Sri Lankan</span>
+                            <h6 class="card-title fw-bold mb-1">Sri Lankan Pumpkin Curry</h6>
+                            <p class="card-text text-muted small mb-0">⏱️ 30 min</p>
+                        </div>
+                        <div>
+                            <a href="#" class="btn btn-success text-white btn-sm w-100 rounded-pill py-2 shadow-sm view-recipe-btn">View Recipe →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe Card 2 -->
+            <div class="col-md-3 col-sm-6 recipe-item" data-category="Sri Lankan">
+                <div class="card recipe-card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-body p-3">
+                    <img src="assets/images/recipe2.png" class="card-img-top rounded-4" alt="Sri Lankan Coconut Sambal" style="height: 180px; object-fit: cover;">
+                    <div class="card-body p-2 text-center d-flex flex-column justify-content-between">
+                        <div class="mb-3">
+                            <span class="badge bg-body-tertiary text-success border mb-2">Sri Lankan</span>
+                            <h6 class="card-title fw-bold mb-1">Sri Lankan Coconut Sambal</h6>
+                            <p class="card-text text-muted small mb-0">⏱️ 10 min</p>
+                        </div>
+                        <div>
+                            <a href="#" class="btn btn-success text-white btn-sm w-100 rounded-pill py-2 shadow-sm view-recipe-btn">View Recipe →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe Card 3 -->
+            <div class="col-md-3 col-sm-6 recipe-item" data-category="Italian">
+                <div class="card recipe-card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-body p-3">
+                    <img src="assets/images/recipe3.png" class="card-img-top rounded-4" alt="Creamy Avocado Pasta" style="height: 180px; object-fit: cover;">
+                    <div class="card-body p-2 text-center d-flex flex-column justify-content-between">
+                        <div class="mb-3">
+                            <span class="badge bg-body-tertiary text-success border mb-2">Italian</span>
+                            <h6 class="card-title fw-bold mb-1">Creamy Avocado Pasta</h6>
+                            <p class="card-text text-muted small mb-0">⏱️ 15 min</p>
+                        </div>
+                        <div>
+                            <a href="#" class="btn btn-success text-white btn-sm w-100 rounded-pill py-2 shadow-sm view-recipe-btn">View Recipe →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe Card 4 -->
+            <div class="col-md-3 col-sm-6 recipe-item" data-category="Indian">
+                <div class="card recipe-card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-body p-3">
+                    <img src="assets/images/recipe4.png" class="card-img-top rounded-4" alt="Chickpea & Spinach Curry" style="height: 180px; object-fit: cover;">
+                    <div class="card-body p-2 text-center d-flex flex-column justify-content-between">
+                        <div class="mb-3">
+                            <span class="badge bg-body-tertiary text-success border mb-2">Indian</span>
+                            <h6 class="card-title fw-bold mb-1">Chickpea & Spinach Curry</h6>
+                            <p class="card-text text-muted small mb-0">⏱️ 25 min</p>
+                        </div>
+                        <div>
+                            <a href="#" class="btn btn-success text-white btn-sm w-100 rounded-pill py-2 shadow-sm view-recipe-btn">View Recipe →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe Card 5 -->
+            <div class="col-md-3 col-sm-6 recipe-item" data-category="Asian">
+                <div class="card recipe-card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-body p-3">
+                    <img src="assets/images/recipe5.png" class="card-img-top rounded-4" alt="Vegan Mushroom Fried Rice" style="height: 180px; object-fit: cover;">
+                    <div class="card-body p-2 text-center d-flex flex-column justify-content-between">
+                        <div class="mb-3">
+                            <span class="badge bg-body-tertiary text-success border mb-2">Asian</span>
+                            <h6 class="card-title fw-bold mb-1">Vegan Mushroom Fried Rice</h6>
+                            <p class="card-text text-muted small mb-0">⏱️ 20 min</p>
+                        </div>
+                        <div>
+                            <a href="#" class="btn btn-success text-white btn-sm w-100 rounded-pill py-2 shadow-sm view-recipe-btn">View Recipe →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe Card 6 -->
+            <div class="col-md-3 col-sm-6 recipe-item" data-category="Sri Lankan">
+                <div class="card recipe-card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-body p-3">
+                    <img src="assets/images/recipe6.png" class="card-img-top rounded-4" alt="Raw Jackfruit Curry (Polos)" style="height: 180px; object-fit: cover;">
+                    <div class="card-body p-2 text-center d-flex flex-column justify-content-between">
+                        <div class="mb-3">
+                            <span class="badge bg-body-tertiary text-success border mb-2">Sri Lankan</span>
+                            <h6 class="card-title fw-bold mb-1">Raw Jackfruit Curry (Polos)</h6>
+                            <p class="card-text text-muted small mb-0">⏱️ 45 min</p>
+                        </div>
+                        <div>
+                            <a href="#" class="btn btn-success text-white btn-sm w-100 rounded-pill py-2 shadow-sm view-recipe-btn">View Recipe →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe Card 7 -->
+            <div class="col-md-3 col-sm-6 recipe-item" data-category="Asian">
+                <div class="card recipe-card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-body p-3">
+                    <img src="assets/images/recipe7.png" class="card-img-top rounded-4" alt="Vegan Vegetable Stir Fry" style="height: 180px; object-fit: cover;">
+                    <div class="card-body p-2 text-center d-flex flex-column justify-content-between">
+                        <div class="mb-3">
+                            <span class="badge bg-body-tertiary text-success border mb-2">Asian</span>
+                            <h6 class="card-title fw-bold mb-1">Vegan Vegetable Stir Fry</h6>
+                            <p class="card-text text-muted small mb-0">⏱️ 15 min</p>
+                        </div>
+                        <div>
+                            <a href="#" class="btn btn-success text-white btn-sm w-100 rounded-pill py-2 shadow-sm view-recipe-btn">View Recipe →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe Card 8 -->
+            <div class="col-md-3 col-sm-6 recipe-item" data-category="Italian">
+                <div class="card recipe-card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-body p-3">
+                    <img src="assets/images/recipe8.png" class="card-img-top rounded-4" alt="Tomato Basil Bruschetta" style="height: 180px; object-fit: cover;">
+                    <div class="card-body p-2 text-center d-flex flex-column justify-content-between">
+                        <div class="mb-3">
+                            <span class="badge bg-body-tertiary text-success border mb-2">Italian</span>
+                            <h6 class="card-title fw-bold mb-1">Tomato Basil Bruschetta</h6>
+                            <p class="card-text text-muted small mb-0">⏱️ 10 min</p>
+                        </div>
+                        <div>
+                            <a href="#" class="btn btn-success text-white btn-sm w-100 rounded-pill py-2 shadow-sm view-recipe-btn">View Recipe →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe Card 9 -->
+            <div class="col-md-3 col-sm-6 recipe-item" data-category="Indian">
+                <div class="card recipe-card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-body p-3">
+                    <img src="assets/images/recipe9.png" class="card-img-top rounded-4" alt="Red Lentil Dhal Curry" style="height: 180px; object-fit: cover;">
+                    <div class="card-body p-2 text-center d-flex flex-column justify-content-between">
+                        <div class="mb-3">
+                            <span class="badge bg-body-tertiary text-success border mb-2">Indian</span>
+                            <h6 class="card-title fw-bold mb-1">Red Lentil Dhal Curry</h6>
+                            <p class="card-text text-muted small mb-0">⏱️ 20 min</p>
+                        </div>
+                        <div>
+                            <a href="#" class="btn btn-success text-white btn-sm w-100 rounded-pill py-2 shadow-sm view-recipe-btn">View Recipe →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe Card 10 -->
+            <div class="col-md-3 col-sm-6 recipe-item" data-category="Sri Lankan">
+                <div class="card recipe-card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-body p-3">
+                    <img src="assets/images/recipe10.png" class="card-img-top rounded-4" alt="Gotukola Sambol" style="height: 180px; object-fit: cover;">
+                    <div class="card-body p-2 text-center d-flex flex-column justify-content-between">
+                        <div class="mb-3">
+                            <span class="badge bg-body-tertiary text-success border mb-2">Sri Lankan</span>
+                            <h6 class="card-title fw-bold mb-1">Gotukola Pennywort Salad</h6>
+                            <p class="card-text text-muted small mb-0">⏱️ 10 min</p>
+                        </div>
+                        <div>
+                            <a href="#" class="btn btn-success text-white btn-sm w-100 rounded-pill py-2 shadow-sm view-recipe-btn">View Recipe →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe Card 11 -->
+            <div class="col-md-3 col-sm-6 recipe-item" data-category="Asian">
+                <div class="card recipe-card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-body p-3">
+                    <img src="assets/images/recipe11.png" class="card-img-top rounded-4" alt="Tofu Veggie Noodle Soup" style="height: 180px; object-fit: cover;">
+                    <div class="card-body p-2 text-center d-flex flex-column justify-content-between">
+                        <div class="mb-3">
+                            <span class="badge bg-body-tertiary text-success border mb-2">Asian</span>
+                            <h6 class="card-title fw-bold mb-1">Tofu Veggie Noodle Soup</h6>
+                            <p class="card-text text-muted small mb-0">⏱️ 25 min</p>
+                        </div>
+                        <div>
+                            <a href="#" class="btn btn-success text-white btn-sm w-100 rounded-pill py-2 shadow-sm view-recipe-btn">View Recipe →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe Card 12 -->
+            <div class="col-md-3 col-sm-6 recipe-item" data-category="Italian">
+                <div class="card recipe-card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-body p-3">
+                    <img src="assets/images/recipe12.png" class="card-img-top rounded-4" alt="Vegan Mushroom Risotto" style="height: 180px; object-fit: cover;">
+                    <div class="card-body p-2 text-center d-flex flex-column justify-content-between">
+                        <div class="mb-3">
+                            <span class="badge bg-body-tertiary text-success border mb-2">Italian</span>
+                            <h6 class="card-title fw-bold mb-1">Vegan Mushroom Risotto</h6>
+                            <p class="card-text text-muted small mb-0">⏱️ 35 min</p>
+                        </div>
+                        <div>
+                            <a href="#" class="btn btn-success text-white btn-sm w-100 rounded-pill py-2 shadow-sm view-recipe-btn">View Recipe →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe Card 13 -->
+            <div class="col-md-3 col-sm-6 recipe-item" data-category="Sri Lankan">
+                <div class="card recipe-card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-body p-3">
+                    <img src="assets/images/recipe13.png" class="card-img-top rounded-4" alt="Cashew Nut Curry" style="height: 180px; object-fit: cover;">
+                    <div class="card-body p-2 text-center d-flex flex-column justify-content-between">
+                        <div class="mb-3">
+                            <span class="badge bg-body-tertiary text-success border mb-2">Sri Lankan</span>
+                            <h6 class="card-title fw-bold mb-1">Sri Lankan Cashew Curry</h6>
+                            <p class="card-text text-muted small mb-0">⏱️ 30 min</p>
+                        </div>
+                        <div>
+                            <a href="#" class="btn btn-success text-white btn-sm w-100 rounded-pill py-2 shadow-sm view-recipe-btn">View Recipe →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe Card 14 -->
+            <div class="col-md-3 col-sm-6 recipe-item" data-category="Indian">
+                <div class="card recipe-card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-body p-3">
+                    <img src="assets/images/recipe14.png" class="card-img-top rounded-4" alt="Vegetable Biryani" style="height: 180px; object-fit: cover;">
+                    <div class="card-body p-2 text-center d-flex flex-column justify-content-between">
+                        <div class="mb-3">
+                            <span class="badge bg-body-tertiary text-success border mb-2">Indian</span>
+                            <h6 class="card-title fw-bold mb-1">Fragrant Vegetable Biryani</h6>
+                            <p class="card-text text-muted small mb-0">⏱️ 40 min</p>
+                        </div>
+                        <div>
+                            <a href="#" class="btn btn-success text-white btn-sm w-100 rounded-pill py-2 shadow-sm view-recipe-btn">View Recipe →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe Card 15 -->
+            <div class="col-md-3 col-sm-6 recipe-item" data-category="Asian">
+                <div class="card recipe-card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-body p-3">
+                    <img src="assets/images/recipe15.png" class="card-img-top rounded-4" alt="Crispy Spring Rolls" style="height: 180px; object-fit: cover;">
+                    <div class="card-body p-2 text-center d-flex flex-column justify-content-between">
+                        <div class="mb-3">
+                            <span class="badge bg-body-tertiary text-success border mb-2">Asian</span>
+                            <h6 class="card-title fw-bold mb-1">Crispy Vegetable Spring Rolls</h6>
+                            <p class="card-text text-muted small mb-0">⏱️ 25 min</p>
+                        </div>
+                        <div>
+                            <a href="#" class="btn btn-success text-white btn-sm w-100 rounded-pill py-2 shadow-sm view-recipe-btn">View Recipe →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe Card 16 -->
+            <div class="col-md-3 col-sm-6 recipe-item" data-category="Sri Lankan">
+                <div class="card recipe-card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-body p-3">
+                    <img src="assets/images/recipe16.png" class="card-img-top rounded-4" alt="Aubergine Eggplant Moju" style="height: 180px; object-fit: cover;">
+                    <div class="card-body p-2 text-center d-flex flex-column justify-content-between">
+                        <div class="mb-3">
+                            <span class="badge bg-body-tertiary text-success border mb-2">Sri Lankan</span>
+                            <h6 class="card-title fw-bold mb-1">Eggplant Pickle (Batu Moju)</h6>
+                            <p class="card-text text-muted small mb-0">⏱️ 35 min</p>
+                        </div>
+                        <div>
+                            <a href="#" class="btn btn-success text-white btn-sm w-100 rounded-pill py-2 shadow-sm view-recipe-btn">View Recipe →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Scroll To Top Button -->
+    <button id="scrollTopBtn" class="btn btn-success rounded-circle shadow position-fixed bottom-0 end-0 m-4 d-none" style="width: 45px; height: 45px; z-index: 1000;" aria-label="Scroll to Top">
+        ↑
+    </button>
+
+    <!-- Footer -->
+    <footer class="bg-body text-center py-4 border-top mt-auto">
+        <p class="text-muted mb-0">Copyright &copy; 2026 VeganFood. All rights reserved.</p>
+    </footer>
+
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript Files -->
+    <script src="js/hover.js"></script>
+    <script src="js/scroll.js"></script>
+    <script src="js/validation.js"></script>
+    <script src="js/filter.js"></script>
+    <script src="js/search.js"></script>
+</body>
+</html>
