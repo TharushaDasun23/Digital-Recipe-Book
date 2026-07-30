@@ -1,6 +1,6 @@
-Project Update: Phase 1 & Core Backend Integrated!
+## Project Update
 
-Current Status:
+## Current Status:
 We’ve officially wrapped up Phase 1 and fully integrated the core backend! The user session logic and communication layers are 100% operational, tested, and bug-free. The codebase has been cleaned up, organized, and fully documented in the `README.md`. We are now completely ready to kick off the next dev cycle: dynamic recipe rendering and AJAX/JS search filters.
 
 Here is a breakdown of what we’ve built and completed so far:
