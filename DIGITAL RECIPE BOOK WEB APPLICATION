@@ -1,20 +1,20 @@
-VeganFood - Interactive Digital Recipe Book Web Application
+## VeganFood - Interactive Digital Recipe Book Web Application
 
 
-Group Details
+## Group Details
 
 Course:ICT 1209 - Web Technologies 
 Theme:Digital Recipe Book
 
-Members: 
+## Members: 
 T.M.V.L.Weerasekara -ITT/2024/113
 H.T.T.D.Nishantha -ITT/2024/076
 
-Project Overview
+## Project Overview
 
  VeganFood is an interactive, database-driven web application designed to transition traditional, static culinary cookbooks into a modern, responsive digital space. It enables users to browse plant-based recipes, view dynamic ingredients breakdowns, and interact with structured step-by-step cooking layouts.
 
-Planned Core Features:
+## Planned Core Features:
 
 1. User Authentication: Secure registration and login systems using PHP session handling.
 2. Dynamic Search & Filtering:Client-side JavaScript system to query recipe cards instantly without page reloads.
@@ -22,16 +22,16 @@ Planned Core Features:
 
  
 	
-  Technology Stack
+  ## Technology Stack
 •	Frontend: HTML5, CSS3, Bootstrap 5
 •	Client-Side Logic:javaScript
 •	Backend Engine:PHP 
 •	Database Management:MySQL 
 
 
- Phase 1 Deliverables
+ ### Phase 1 Deliverables
 
-Wireframes:
+## Wireframes:
 1.	Includes Home Page
 
 •	Header & Identity: Features the official brand logo alongside explicit text links navigation (Home, Recipes, Contact) and an outstanding accent template button for Login functionality.
@@ -61,7 +61,7 @@ Wireframes:
 
 We have successfully finalized our conceptual blueprints, structural requirements, and 3-page visual wireframes for Phase 1 of the project. This note outlines our immediate production roadmap as we transition into the next development phases.
 
-Upcoming Development Roadmap
+## Upcoming Development Roadmap
 
 1. Frontend Layout & Responsive Design  
 Grid Mapping : We will translate our layout frames into fully structured HTML pages using the Bootstrap 5 grid system to guarantee a fully responsive design across all devices (mobile, tablet, and desktop viewports )
