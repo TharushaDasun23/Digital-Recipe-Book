@@ -1,4 +1,4 @@
-## Phase 1 – Proposal & Wireframes 
+## Phase 2 – Frontend Layout & Design 
 
 
 ## VeganFood - Digital Cookbook 
