@@ -57,9 +57,9 @@ An interactive and responsive plant-based recipe application for ICT 1209: Web T
 
  ## Technology Stack
 
-- Frontend: HTML5, CSS3, Bootstrap 5 
-- Scripting:   JavaScript 
-- Version Control:GitHub 
+- **Frontend:** HTML5, CSS3, Bootstrap 5 
+- **Scripting:** JavaScript 
+- **Version Control:**GitHub 
 
 ## JavaScript Features
 
