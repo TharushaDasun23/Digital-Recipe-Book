@@ -68,6 +68,16 @@ An interactive and responsive plant-based recipe application for ICT 1209: Web T
 03. Form Validation: Real-time validation for user input forms (js/validation.js).
 04. UI Animations: Card hover animations and scroll-to-top button (js/hover.js, js/scroll.js).
 
+
+## CSS Implementation / Styling Approach
+
+01.Bootstrap 5 Integration:** Primary layout styling and dynamic validation states (`is-valid` / `is-invalid`) are handled using Bootstrap 5 utility classes.
+02.Inline Custom Styling:** Component-specific custom styling and quick layout adjustments were implemented using inline CSS to ensure component isolation and direct control over design constraints.
+03.External Scripts Integration:** Interactive states styled dynamically via JS validation (`validation.js` and `search.js`).
+
+
+
+
 ## Team Members :
 
 - Name        : T.M.V.L.Weerasekara
