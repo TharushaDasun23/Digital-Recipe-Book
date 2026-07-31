@@ -2,7 +2,7 @@
 ## Phase 1 Deliverables
 
 ## Wireframes:
-1.	Includes Home Page
+## 1.	Includes Home Page
 
 •	**Header & Identity:** Features the official brand logo alongside explicit text links navigation (Home, Recipes, Contact) and an outstanding accent template button for Login functionality.
 
@@ -11,7 +11,7 @@
 •	**Dynamic Recipes Grid:** Organizes featured recipe cards dynamically using spacing, complete with structured "View Recipe" actionable pointer cards.
 
 
-2.	Recipe View
+## 2.	Recipe View
 
 •	**Visual & Temporal Data:** Contains dedicated metadata headers for recipe nomenclature (e.g., Chicken Kottu Roti), local origin variables, prep times, and total serving yields. 
 
@@ -20,7 +20,7 @@
 •	**Sequential Instructions Array:** Uses an ordered list structure to present step-by-step cooking directions clearly, paired with thumbnail carousel dots for easy tracking. 
 
 
-3.	Contact Page layouts
+## 3.	Contact Page layouts
 
 •	**Central Form Wrapper:** Features an isolated interactive form structure containing input blocks explicitly arranged for capturing user data. 
 
