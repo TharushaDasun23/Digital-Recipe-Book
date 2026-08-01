@@ -68,6 +68,38 @@ An interactive and responsive plant-based recipe application for ICT 1209: Web T
 03. **Form Validation:** Real-time validation for user input forms (js/validation.js).
 04. **UI Animations:** Card hover animations and scroll-to-top button (js/hover.js, js/scroll.js).
 
+### Key Bootstrap Components Used:
+
+1. *Responsive Navigation Bar (.navbar-expand-lg)*:
+
+The mobile menu can be. Opened with a button.
+
+The brand name is in a spot and the navigation links are lined up nicely.
+
+2. **Grid. Layout (.container.row.col-*)**:
+
+We used this in the index.html. Recipes.html files to make a layout with many columns that works well on phones, tablets and computers.
+
+3. *Card Component (.card,.card-img-.card-body)*:
+
+We used this for all the recipes and added a shadow and rounded corners to make it look nice.
+
+4. *Form Controls & Input Groups (.form-control,.input-group)*:
+
+We styled the search bars and contact forms to look good and work well with Bootstrap.
+
+5. *. Action Buttons (.badge,.btn)*:
+
+We made the buttons look nice and added badges to show what type of food it is.
+
+6. *Bootstrap Utility Classes*:
+
+*Flexbox Utilities*: We used these to line up things on the page.
+
+*Spacing Utilities*: We used these to make sure things have the amount of space around them.
+
+ 
+
 
 ## CSS Implementation / Styling Approach
 
