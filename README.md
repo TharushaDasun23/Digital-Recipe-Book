@@ -33,12 +33,14 @@ We have successfully finalized our conceptual blueprints, structural requirement
 
 ## Upcoming Development Roadmap
 
-1. Frontend Layout & Responsive Design  
+**1. Frontend Layout & Responsive Design** 
+
 Grid Mapping : We will translate our layout frames into fully structured HTML pages using the Bootstrap 5 grid system to guarantee a fully responsive design across all devices (mobile, tablet, and desktop viewports )
 UI Elements:We will implement standardized navigation frameworks, responsive content card layouts, and uniform footers across the site 
 Client-Side Interactions:JavaScript scripts will be programmed to handle dynamic content queries, form field inputs, and real-time interface updates 
 
-2. Backend Engine & Relational Database Integration  
+**2. Backend Engine & Relational Database Integration**
+
 MySQL Database Schema:We will build a local MySQL database structure via XAMPP to map our system layouts and data models.
 PHP Server Logic Processing: Secure PHP 8 backend scripts will be created using prepared statements to safely process user forms and capture database entries.
 Authentication & Session Handling: We will deploy secure PHP session routines to monitor login actions and maintain safe user authentication states.
@@ -59,7 +61,8 @@ An interactive and responsive plant-based recipe application for ICT 1209: Web T
 
 - **Frontend:** HTML5, CSS3, Bootstrap 5 
 - **Scripting:** JavaScript 
-- **Version Control:** GitHub 
+- **Version Control:** GitHub
+  
 
 ## JavaScript Features
 
@@ -68,31 +71,33 @@ An interactive and responsive plant-based recipe application for ICT 1209: Web T
 03. **Form Validation:** Real-time validation for user input forms (js/validation.js).
 04. **UI Animations:** Card hover animations and scroll-to-top button (js/hover.js, js/scroll.js).
 
+
+
 ### Key Bootstrap Components Used:
 
-1. *Responsive Navigation Bar (.navbar-expand-lg)*:
+**1.Responsive Navigation Bar (.navbar-expand-lg):**
 
 The mobile menu can be. Opened with a button.
 
 The brand name is in a spot and the navigation links are lined up nicely.
 
-2. **Grid. Layout (.container.row.col-*)**:
+**2.Grid. Layout (.container.row.col-):**
 
 We used this in the index.html. Recipes.html files to make a layout with many columns that works well on phones, tablets and computers.
 
-3. *Card Component (.card,.card-img-.card-body)*:
+**3.Card Component (.card,.card-img-.card-body):**
 
 We used this for all the recipes and added a shadow and rounded corners to make it look nice.
 
-4. *Form Controls & Input Groups (.form-control,.input-group)*:
+**4.Form Controls & Input Groups (.form-control,.input-group):**
 
 We styled the search bars and contact forms to look good and work well with Bootstrap.
 
-5. *. Action Buttons (.badge,.btn)*:
+**5.Action Buttons (.badge,.btn):**
 
 We made the buttons look nice and added badges to show what type of food it is.
 
-6. *Bootstrap Utility Classes*:
+**6.Bootstrap Utility Classes:**
 
 *Flexbox Utilities*: We used these to line up things on the page.
 
@@ -114,8 +119,8 @@ We made the buttons look nice and added badges to show what type of food it is.
 
 ## Team Members :
 
-**- Name        :** T.M.V.L.Weerasekara
+**- Name        :** T.M.V.L Weerasekara
 **- Index No    :** 2798
 
-**- Name        :** H.T.T.D.Nishantha
+**- Name        :** H.T.T.D Nishantha
 **- Index No    :** 2761
