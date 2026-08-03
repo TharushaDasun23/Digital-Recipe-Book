@@ -124,9 +124,9 @@ We made the buttons look nice and added badges to show what type of food it is.
 Phase 3 transitions the frontend website into a fully functional dynamic web application using *PHP* and *MySQL*.
 
 ### Core Implementation
-. *Database Management (database.sql):* SQL script containing schema for users, recipes, and contact_messages tables.
-. *Database Connectivity (includes/db.php):* Centralized MySQLi connection helper.
-. **Authentication System (auth/):**
+• *Database Management (database.sql):* SQL script containing schema for users, recipes, and contact_messages tables.
+• *Database Connectivity (includes/db.php):* Centralized MySQLi connection helper.
+• **Authentication System (auth/):**
         * 01.** register.php:** New user registration with password hashing (password_hash).
         * 02.** login.php:** Secure session-based authentication.
         * 03.** logout.php:** Session destruction and secure redirect.
