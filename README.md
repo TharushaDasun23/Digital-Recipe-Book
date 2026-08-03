@@ -127,9 +127,9 @@ Phase 3 transitions the frontend website into a fully functional dynamic web app
 * *Database Management (database.sql):* SQL script containing schema for users, recipes, and contact_messages tables.
 * *Database Connectivity (includes/db.php):* Centralized MySQLi connection helper.
 * *Authentication System (auth/):*
-  01.* register.php: New user registration with password hashing (password_hash).
-  02.* login.php: Secure session-based authentication.
-  03.* logout.php: Session destruction and secure redirect.
+         01.* register.php: New user registration with password hashing (password_hash).
+         02.* login.php: Secure session-based authentication.
+         03.* logout.php: Session destruction and secure redirect.
 
 
 
