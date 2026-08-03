@@ -117,7 +117,8 @@ We made the buttons look nice and added badges to show what type of food it is.
 
 
 
-## Phase 3 Deliverables (Backend & Database Integration)
+## Phase 3 
+##(Backend & Database Integration)
 
 ### Overview
 Phase 3 transitions the frontend website into a fully functional dynamic web application using *PHP* and *MySQL*.
