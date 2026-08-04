@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             display: flex;
         }
         .register-image-side {
-            /* register  page image*/
+            /* register page image*/
             background: url('../images/login-pic.jpg') center/cover no-repeat;
             background-color: #2b2b2b;
         }
