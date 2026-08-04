@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             display: flex;
         }
         .login-image-side {
-            /* Replace with your actual image file path */
+        
             background: url('../images/login-pic.jpg') center/cover no-repeat;
             background-color: #2b2b2b;
         }

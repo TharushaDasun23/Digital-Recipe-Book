@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../includes/db.php'; // Correct pathway for subfolder[cite: 1]
+include '../includes/db.php'; // Correct pathway for subfolder
 
 $message = "";
 
@@ -10,10 +10,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST['password'];
 
     if (!empty($username) && !empty($email) && !empty($password)) {
-        // SECURE: Hash the password using BCRYPT (Guide Requirement)[cite: 1]
+    
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
-        // Check if email already exists[cite: 1]
+        // Check if email already exists
         $check_stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
         $check_stmt->bind_param("s", $email);
         $check_stmt->execute();
@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($check_result->num_rows > 0) {
             $message = "<div class='alert alert-danger py-2 small'>Email is already registered!</div>";
         } else {
-            // Insert new user secure data[cite: 1]
+        
             $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
             $stmt->bind_param("sss", $username, $email, $hashed_password);
 
@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             display: flex;
         }
         .register-image-side {
-            /* Replace with your actual image file path */
+            /* register  page image*/
             background: url('../images/login-pic.jpg') center/cover no-repeat;
             background-color: #2b2b2b;
         }
@@ -118,7 +118,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </div>
 
-    <!-- Link Custom JavaScript for Client-side Validation (Phase 2 Requirement)[cite: 1] -->
     <script src="../js/validation.js"></script>
 </body>
 </html>
