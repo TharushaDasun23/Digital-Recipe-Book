@@ -133,8 +133,15 @@ Phase 3 transitions the frontend website into a fully functional dynamic web app
     * *03. logout.php:* Session destruction and secure redirect.
 
 
+## Project Progress & Updates aug 6
 
+### Recipe Creation, Viewing & Image Uploads
+- **Recipe Creation (`add_recipe.php`):** Implemented a secure form allowing users to add new recipes with titles, ingredients, instructions, and images.
+- **Image Upload Management:** Configured file handling and storage integration within the `images/uploads/` directory.
+- **Recipe Listing (`recipes.php`):** Developed the main recipes catalog page to fetch and display dynamic recipe cards from the database.
+- **Detailed View (`recipe_view.php`):** Created a dedicated single-recipe view page to showcase full ingredients and step-by-step instructions.
 
+ 
 
 ## Team Members :
 
