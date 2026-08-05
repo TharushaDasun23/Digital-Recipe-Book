@@ -133,7 +133,7 @@ Phase 3 transitions the frontend website into a fully functional dynamic web app
     * *03. logout.php:* Session destruction and secure redirect.
 
 
-## Project Progress & Updates aug 6
+### Project Progress & Updates aug 6
 
 ### Recipe Creation, Viewing & Image Uploads
 - **Recipe Creation (`add_recipe.php`):** Implemented a secure form allowing users to add new recipes with titles, ingredients, instructions, and images.
