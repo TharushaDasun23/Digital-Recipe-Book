@@ -23,8 +23,7 @@ An interactive and responsive plant-based recipe application for ICT 1209: Web T
 
 
 veganfood/
-├── assets/
-│   └── images/
+├── images/
 ├── css/
 │   └── styles.css
 ├── js/
