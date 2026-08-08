@@ -134,7 +134,7 @@ Phase 3 transitions the frontend website into a fully functional dynamic web app
 
 
 
-### Project Progress and Updates aug 6
+### Project Progress and Updates (aug 6)
 
 ### Recipe Creation Viewing and Image Uploads
 
@@ -143,7 +143,10 @@ Phase 3 transitions the frontend website into a fully functional dynamic web app
 - **Recipe Listing recipes php:** Developed the main recipes catalog page to fetch and display dynamic recipe cards from the database
 - **Detailed View recipe_view php:** Created a dedicated single recipe view page to showcase full ingredients and step by step instructions
 
- 
+ ### Recipe Update & Delete Functionality (aug 8)
+- **Edit Recipe (`edit_recipe.php`):** Added dynamic form handling to retrieve existing recipe details, allow inline text updates, and support optional image replacement.
+- **Delete Recipe (`delete_recipe.php`):** Implemented secure deletion logic that removes the recipe record from the database and cleans up associated image files from the `images/uploads/` directory.
+- **Recipe Management UI:** Integrated 'Edit' and 'Delete' action buttons into the detailed view (`recipe_view.php`) and recipe directory for authorized users.
 
 ## Team Members :
 
