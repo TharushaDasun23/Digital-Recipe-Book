@@ -148,6 +148,36 @@ Phase 3 transitions the frontend website into a fully functional dynamic web app
 - **Delete Recipe (`delete_recipe.php`):** Implemented secure deletion logic that removes the recipe record from the database and cleans up associated image files from the `images/uploads/` directory.
 - **Recipe Management UI:** Integrated 'Edit' and 'Delete' action buttons into the detailed view (`recipe_view.php`) and recipe directory for authorized users.
 
+
+### Features & Enhancements (JavaScript & Interactivity) (aug 12)
+
+Day 4 focus was on bringing dynamic frontend interactivity, real-time feedback, and dynamic user experience across the Digital Recipe Book web application.
+
+### Key Features Implemented:
+1. *Real-time Recipe Filtering (js/filter.js)*:
+   - Interactive category filter buttons (All, Sri Lankan, Italian, etc.) with active state toggling.
+   - Dynamic re-triggering of CSS entrance animations for filtered items.
+
+2. *Live Search Engine (js/search.js)*:
+   - Real-time keyup filtering on recipe titles and categories.
+   - URL search parameter parser to pre-filter recipes directly from shared links.
+
+3. *Smooth Page Transitions (js/theme.js & js/transition.js)*:
+   - Seamless page entrance (page-loaded) and exit (page-exiting) CSS fade animations.
+   - Sequential staggered animation timing for recipe card grids.
+
+4. *Dark / Light Mode Toggle (js/theme.js)*:
+   - Theme persistence using localStorage.
+   - Smooth theme attributes toggle on the HTML document root (data-bs-theme).
+
+5. *Client-Side Form Validation (js/validation.js)*:
+   - Instant input validation for contact form fields.
+   - Live search input validation and missing recipe alert handling.
+
+6. *UI Polish & Interactive Effects (js/hover.js & js/scroll.js)*:
+   - Smooth card lift hover animation (translateY).
+   - Dynamic "Scroll-to-Top" button visibility trigger based on scroll offset.
+
 ## Team Members :
 
 **- Name        :** T.M.V.L Weerasekara
