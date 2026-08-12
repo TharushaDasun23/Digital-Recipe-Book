@@ -151,8 +151,6 @@ Phase 3 transitions the frontend website into a fully functional dynamic web app
 
 ### Features & Enhancements (JavaScript & Interactivity) (aug 12)
 
-Day 4 focus was on bringing dynamic frontend interactivity, real-time feedback, and dynamic user experience across the Digital Recipe Book web application.
-
 ### Key Features Implemented:
 1. *Real-time Recipe Filtering (js/filter.js)*:
    - Interactive category filter buttons (All, Sri Lankan, Italian, etc.) with active state toggling.
@@ -177,6 +175,7 @@ Day 4 focus was on bringing dynamic frontend interactivity, real-time feedback, 
 6. *UI Polish & Interactive Effects (js/hover.js & js/scroll.js)*:
    - Smooth card lift hover animation (translateY).
    - Dynamic "Scroll-to-Top" button visibility trigger based on scroll offset.
+
 
 ## Team Members :
 
