@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const searchForm = document.getElementById("searchForm");
     const recipeItems = document.querySelectorAll(".recipe-item");
 
-    //card load animation sequence
+    //card load animation 
     recipeItems.forEach((card, index) => {
         card.style.animationDelay = `${index * 0.08}s`;
     });
@@ -42,15 +42,15 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Form submission handling
+    // Form submission
     if (searchForm) {
         searchForm.addEventListener("submit", function (e) {
-            // Stop processing if input is empty
+        
             if (searchInput && searchInput.value.trim() === "") {
                 return;
             }
 
-            // Block default page reload if already on recipes page
+        
             if (recipeItems.length > 4) {
                 e.preventDefault();
             }

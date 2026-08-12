@@ -3,13 +3,13 @@ document.addEventListener("DOMContentLoaded", function () {
     // 1. Trigger page entrance animation by adding 'page-loaded' to body
     document.body.classList.add("page-loaded");
 
-    // 2. Sequential load animation for Recipe Cards
+ 
     const cards = document.querySelectorAll('.recipe-card');
     cards.forEach((card, index) => {
         const col = card.closest('.col-md-3, .col-sm-6, .col-lg-4, .col-md-4, .col');
         if (col) {
             col.classList.add('recipe-card-animate');
-            // Give each card an individual sequential delay (0s, 0.08s, 0.16s, etc.)
+         
             col.style.animationDelay = (index * 0.08) + 's';
         }
     });

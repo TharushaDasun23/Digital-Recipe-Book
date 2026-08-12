@@ -1,4 +1,4 @@
-// Dynamic Category Filtering option
+//  Filtering option
 document.addEventListener("DOMContentLoaded", function () {
     const filterButtons = document.querySelectorAll(".filter-btn");
     const recipeItems = document.querySelectorAll(".recipe-item");
