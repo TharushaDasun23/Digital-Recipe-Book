@@ -1,4 +1,4 @@
-// smooth lift animation 
+//  smooth lift animation 
 document.addEventListener("DOMContentLoaded", function () {
     const cards = document.querySelectorAll(".recipe-card");
     

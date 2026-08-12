@@ -1,6 +1,6 @@
-// js/transition.js - Handles smooth page fade-in/out transitions and sequential card loading
+//  js/transition.js - Handles smooth page fade-in/out transitions and sequential card loading
 document.addEventListener("DOMContentLoaded", function () {
-    // 1. Trigger page entrance animation by adding 'page-loaded' to body
+    //  Trigger page entrance animation by adding 'page-loaded' to body
     document.body.classList.add("page-loaded");
 
  
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // 3. Handle smooth page exit transitions for internal links
+    //  Handle smooth page exit transitions for internal links
     const links = document.querySelectorAll("a[href]");
     
     links.forEach(link => {

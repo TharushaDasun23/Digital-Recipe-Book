@@ -1,4 +1,4 @@
-//real-time search filtering, URL search, and card animations
+// real-time search filtering, URL search, and card animations
 
 document.addEventListener("DOMContentLoaded", function () {
     const searchInput = document.getElementById("searchInput");
@@ -50,7 +50,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-        
             if (recipeItems.length > 4) {
                 e.preventDefault();
             }

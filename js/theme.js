@@ -1,9 +1,9 @@
-// Dark Mode  and smooth page transitions 
+//  Dark Mode,smooth page transitions 
 document.addEventListener("DOMContentLoaded", function () {
     // 1. Page Fade-In Transition
     document.body.classList.add("page-loaded");
 
-    // Smooth Page Exit Transition 
+    //  Smooth Page Exit Transition 
     const links = document.querySelectorAll('a[href$=".html"]');
     links.forEach(link => {
         link.addEventListener("click", function (e) {
@@ -27,13 +27,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const themeToggleBtn = document.getElementById("themeToggle") || document.getElementById("themeToggleBtn");
     const savedTheme = localStorage.getItem("theme");
 
-    
     if (savedTheme) {
         document.documentElement.setAttribute("data-bs-theme", savedTheme);
         updateButtonState(themeToggleBtn, savedTheme);
     }
-
-    
+ 
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener("click", function () {
             const currentTheme = document.documentElement.getAttribute("data-bs-theme");
@@ -44,8 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
             updateButtonState(themeToggleBtn, newTheme);
         });
     }
-
-   
+  
     function updateButtonState(button, theme) {
         if (!button) return;
 

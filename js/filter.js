@@ -1,4 +1,4 @@
-//  Filtering option
+//   Filtering option
 document.addEventListener("DOMContentLoaded", function () {
     const filterButtons = document.querySelectorAll(".filter-btn");
     const recipeItems = document.querySelectorAll(".recipe-item");
@@ -11,15 +11,13 @@ document.addEventListener("DOMContentLoaded", function () {
                     btn.classList.remove("btn-success", "fw-bold");
                     btn.classList.add("btn-outline-secondary");
                 });
-                
-                
+                             
                 this.classList.remove("btn-outline-secondary");
                 this.classList.add("btn-success", "fw-bold");
 
                 const selectedFilter = this.getAttribute("data-filter");
                 let visibleIndex = 0;
 
-                
                 recipeItems.forEach(item => {
                     const category = item.getAttribute("data-category");
 

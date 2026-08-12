@@ -1,11 +1,10 @@
-// Validation Search and Contact Forms
+// Validation Search,Contact Forms
 document.addEventListener("DOMContentLoaded", function () {
 
-    // 1. SEARCH BAR VALIDATION & CHECKING
+    //  SEARCH BAR VALIDATION & CHECKING
 
     const searchInput = document.getElementById("searchInput");
     const searchForm = document.getElementById("searchForm");
-
 
     const availableRecipes = [
         "sri lankan pumpkin curry", "pumpkin curry",
@@ -64,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // 2. CONTACT FORM VALIDATION 
+    //  CONTACT FORM VALIDATION 
     const contactForm = document.querySelector("form");
 
     if (contactForm && window.location.pathname.includes("contact.html")) {

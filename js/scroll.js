@@ -1,4 +1,4 @@
-// Shows scroll option
+//  Shows scroll option
 document.addEventListener("DOMContentLoaded", function () {
     const scrollTopBtn = document.getElementById("scrollTopBtn");
 
