@@ -1,8 +1,10 @@
-// Validation Search,Contact Forms
+/**
+ * Digital Recipe Book - Form Validation System
+ * Refactored & Optimized by Contributor
+ */
 document.addEventListener("DOMContentLoaded", function () {
 
-    //  SEARCH BAR VALIDATION & CHECKING
-
+    // 1. SEARCH BAR VALIDATION & CHECKING
     const searchInput = document.getElementById("searchInput");
     const searchForm = document.getElementById("searchForm");
 
@@ -49,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (!recipeExists) {
                 e.preventDefault();
-                showSearchError(`No recipe found for "${rawQuery}"!`);
+                showSearchError(No recipe found for "${rawQuery}"!);
             } else {
                 searchInput.classList.remove("is-invalid");
                 searchInput.classList.add("is-valid");
@@ -63,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    //  CONTACT FORM VALIDATION 
+    // 2. CONTACT FORM VALIDATION
     const contactForm = document.querySelector("form");
 
     if (contactForm && window.location.pathname.includes("contact.html")) {
@@ -72,12 +74,11 @@ document.addEventListener("DOMContentLoaded", function () {
         contactForm.addEventListener("submit", function (e) {
             let isValid = true;
 
-            // Target fields specifically inside contact form
             const nameInput = contactForm.querySelector('input[type="text"]');
             const emailInput = contactForm.querySelector('input[type="email"]');
             const messageInput = contactForm.querySelector('textarea');
 
-            //Name Check
+            // Name Validation
             if (nameInput) {
                 if (nameInput.value.trim() === "") {
                     showError(nameInput);
@@ -87,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
 
-            //Email Check
+            // Email Validation
             if (emailInput) {
                 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailPattern.test(emailInput.value.trim())) {
@@ -98,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
 
-            //Message Check
+            // Message Validation
             if (messageInput) {
                 if (messageInput.value.trim() === "") {
                     showError(messageInput);
@@ -108,7 +109,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
 
-        
             if (!isValid) {
                 e.preventDefault();
                 e.stopPropagation();

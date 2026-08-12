@@ -1,20 +1,22 @@
-//  js/transition.js - Handles smooth page fade-in/out transitions and sequential card loading
+/**
+ * Digital Recipe Book - Smooth Page Transition & Sequential Animations
+ * Refactored & Optimized by Contributor
+ */
 document.addEventListener("DOMContentLoaded", function () {
-    //  Trigger page entrance animation by adding 'page-loaded' to body
+    // 1. Trigger page entrance animation
     document.body.classList.add("page-loaded");
 
- 
+    // 2. Sequential card entrance
     const cards = document.querySelectorAll('.recipe-card');
     cards.forEach((card, index) => {
         const col = card.closest('.col-md-3, .col-sm-6, .col-lg-4, .col-md-4, .col');
         if (col) {
             col.classList.add('recipe-card-animate');
-         
             col.style.animationDelay = (index * 0.08) + 's';
         }
     });
 
-    //  Handle smooth page exit transitions for internal links
+    // 3. Handle smooth page exit transitions
     const links = document.querySelectorAll("a[href]");
     
     links.forEach(link => {

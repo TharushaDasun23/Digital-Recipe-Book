@@ -1,4 +1,7 @@
-//  Shows scroll option
+/**
+ * Digital Recipe Book - Scroll To Top Control
+ * Refactored & Optimized by Contributor
+ */
 document.addEventListener("DOMContentLoaded", function () {
     const scrollTopBtn = document.getElementById("scrollTopBtn");
 

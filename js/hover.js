@@ -1,4 +1,7 @@
-//  smooth lift animation 
+/**
+ * Digital Recipe Book - Card Lift Animation
+ * Refactored & Optimized by Contributor
+ */
 document.addEventListener("DOMContentLoaded", function () {
     const cards = document.querySelectorAll(".recipe-card");
     

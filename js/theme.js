@@ -1,9 +1,12 @@
-//  Dark Mode,smooth page transitions 
+/**
+ * Digital Recipe Book - Theme Switcher & Page Entrance
+ * Refactored & Optimized by Contributor
+ */
 document.addEventListener("DOMContentLoaded", function () {
     // 1. Page Fade-In Transition
     document.body.classList.add("page-loaded");
 
-    //  Smooth Page Exit Transition 
+    // Smooth Page Exit Transition 
     const links = document.querySelectorAll('a[href$=".html"]');
     links.forEach(link => {
         link.addEventListener("click", function (e) {
@@ -23,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // 2. Dark/Light Mode
+    // 2. Dark/Light Mode Engine
     const themeToggleBtn = document.getElementById("themeToggle") || document.getElementById("themeToggleBtn");
     const savedTheme = localStorage.getItem("theme");
 
@@ -31,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.documentElement.setAttribute("data-bs-theme", savedTheme);
         updateButtonState(themeToggleBtn, savedTheme);
     }
- 
+
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener("click", function () {
             const currentTheme = document.documentElement.getAttribute("data-bs-theme");
@@ -42,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function () {
             updateButtonState(themeToggleBtn, newTheme);
         });
     }
-  
+
     function updateButtonState(button, theme) {
         if (!button) return;
 
