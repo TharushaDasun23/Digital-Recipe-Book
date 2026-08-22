@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = trim($_POST['email']);
     $password = $_POST['password'];
 
-    if (!empty($username) && !empty($email) && !empty($password)) {
+    if (strlen($username) >= 2 && strlen($username) <= 50 && filter_var($email, FILTER_VALIDATE_EMAIL) && strlen($email) <= 100 && strlen($password) >= 6 && strlen($password) <= 255) {
     
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
 
@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $message = "<div class='alert alert-danger py-2 small'>Email is already registered!</div>";
         } else {
         
-            $stmt = $conn->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
+            $stmt = $conn->prepare("INSERT INTO users (username, email, password, role) VALUES (?, ?, ?, 'user')");
             $stmt->bind_param("sss", $username, $email, $hashed_password);
 
             if ($stmt->execute()) {

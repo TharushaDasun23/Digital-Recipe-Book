@@ -4,6 +4,7 @@ session_start();
 
 // Include database connection configuration
 include 'includes/db.php';
+include 'includes/security.php';
 
 // Authentication check: Redirect unauthenticated users to the login page
 if (!isset($_SESSION['user_id'])) {
@@ -16,6 +17,7 @@ $status = "";
 
 // Check if the form has been submitted via POST method
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    verify_csrf();
     // Sanitize and retrieve form inputs
     $name = isset($_POST['name']) ? trim($_POST['name']) : '';
     $email = isset($_POST['email']) ? trim($_POST['email']) : '';
@@ -29,7 +31,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_id = $_SESSION['user_id'];
 
     // Validate that required fields are not empty
-    if (!empty($name) && !empty($email) && !empty($message_text)) {
+    if (strlen($name) < 2 || strlen($name) > 100 || !filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($subject) < 2 || strlen($message_text) < 5 || strlen($message_text) > 5000) {
+        $status = "<div class='alert alert-danger'>Please enter valid contact details and a message.</div>";
+    } else {
         // Prepare SQL statement to insert the contact message into the database with the user ID
         $stmt = $conn->prepare("INSERT INTO messages (user_id, name, email, message) VALUES (?, ?, ?, ?)");
         $stmt->bind_param("isss", $user_id, $name, $email, $full_message);
@@ -108,19 +112,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container my-auto">
         <div class="contact-form-container bg-body-secondary shadow-sm">
             <h2 class="text-center mb-4 fw-bold">Contact Us</h2>
-            <p><?php echo $status; ?></p>
+            <?php echo $status; ?>
             <form method="POST" action="contact.php">
+                <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars(csrf_token()); ?>">
                 <label class="form-label fw-semibold">Name</label>
-                <input type="text" class="form-control rounded-3" name="name" placeholder="Your Full Name" required>
+                <input type="text" class="form-control rounded-3" name="name" maxlength="100" value="<?php echo htmlspecialchars($_POST['name'] ?? ''); ?>" placeholder="Your Full Name" required>
                 
                 <label class="form-label fw-semibold">Email</label>
-                <input type="email" class="form-control rounded-3" name="email" placeholder="name@example.com" required>
+                <input type="email" class="form-control rounded-3" name="email" maxlength="100" value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>" placeholder="name@example.com" required>
                 
                 <label class="form-label fw-semibold">Subject</label>
-                <input type="text" class="form-control rounded-3" name="subject" placeholder="Enter message subject" required>
+                <input type="text" class="form-control rounded-3" name="subject" maxlength="255" value="<?php echo htmlspecialchars($_POST['subject'] ?? ''); ?>" placeholder="Enter message subject" required>
                 
                 <label class="form-label fw-semibold">Message</label>
-                <textarea class="form-control rounded-3" name="message" rows="5" placeholder="Type your message here..." required></textarea>
+                <textarea class="form-control rounded-3" name="message" rows="5" maxlength="5000" placeholder="Type your message here..." required><?php echo htmlspecialchars($_POST['message'] ?? ''); ?></textarea>
                 
                 <button type="submit" class="btn-submit shadow-sm mt-2">Send Message</button>
             </form>
@@ -136,5 +141,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/hover.js"></script>
     <script src="js/scroll.js"></script>
+    <script src="js/validation.js"></script>
 </body>
 </html>

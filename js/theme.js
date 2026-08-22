@@ -1,20 +1,26 @@
-// Dark Mode  and smooth page transitions 
+// Dark Mode, smooth page transitions, and staggered recipe card entrance
 document.addEventListener("DOMContentLoaded", function () {
-    // 1. Page Fade-In Transition
-    document.body.classList.add("page-loaded");
+    // 1b. Staggered entrance animation for recipe cards (if any are present on this page)
+    const cards = document.querySelectorAll(".recipe-card");
+    cards.forEach((card, index) => {
+        const col = card.closest(".col-md-3, .col-sm-6, .col-lg-4, .col-md-4, .col");
+        if (col) {
+            col.classList.add("recipe-card-animate");
+            col.style.animationDelay = (index * 0.08) + "s";
+        }
+    });
 
     // Smooth Page Exit Transition 
-    const links = document.querySelectorAll('a[href$=".html"]');
+    const links = document.querySelectorAll('a[href]');
     links.forEach(link => {
         link.addEventListener("click", function (e) {
             const targetUrl = this.getAttribute("href");
 
-            if (this.target === "_blank" || targetUrl.startsWith("#")) {
+            if (!targetUrl || this.target === "_blank" || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || targetUrl.startsWith("#") || targetUrl.startsWith("http") || targetUrl.startsWith("mailto:") || targetUrl.startsWith("tel:") || targetUrl.startsWith("javascript:")) {
                 return;
             }
 
             e.preventDefault();
-            document.body.classList.remove("page-loaded");
             document.body.classList.add("page-exiting");
 
             setTimeout(function () {

@@ -1,5 +1,5 @@
 /* --- Custom Page Transition & General Styles --- */
-
+/* CSS-only entrance so the page is always visible even if JS fails to load. */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -15,6 +15,13 @@ body {
     animation: fadeIn 0.4s ease-in-out;
 }
 
+/* js/theme.js adds .page-exiting on internal link clicks for a smooth exit fade */
+body.page-exiting {
+    animation: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
 /* --- Staggered Card Load Animation --- */
 @keyframes fadeInUp {
     from {
@@ -27,7 +34,8 @@ body {
     }
 }
 
-.recipe-card-animate {
+.recipe-card-animate,
+.recipe-item {
     opacity: 0;
     animation: fadeInUp 0.5s ease-in-out forwards;
 }
@@ -40,11 +48,39 @@ body {
 
 .recipe-card { 
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
+    border-radius: 12px;
+    overflow: hidden;
 }
 
 .recipe-card:hover { 
     transform: translateY(-5px); 
     box-shadow: 0 8px 20px rgba(0,0,0,0.15) !important; 
+}
+
+/* Custom Scrollbar Polish */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #198754;
+    border-radius: 4px;
+}
+
+/* Dark Mode Card Adjustment */
+[data-bs-theme="dark"] .card {
+    background-color: #2b3035;
+    color: #fff;
+}
+
+/* Small-screen container padding */
+@media (max-width: 576px) {
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 }
 
 .category-scroll { 
@@ -60,4 +96,71 @@ body {
 .category-scroll::-webkit-scrollbar-thumb { 
     background: #198754; 
     border-radius: 10px; 
+}
+/* Mobile View Fix: Burger Image as Blurred Backdrop */
+@media (max-width: 767.98px) {
+    /* Hide separate desktop image column on mobile screens */
+    .col-md-6:has(img),
+    .d-none.d-md-block,
+    img.img-fluid {
+        display: none !important;
+    }
+
+    /* Reset full screen layout structure */
+    body, 
+    .container-fluid, 
+    .row {
+        min-height: 100vh;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Apply burger image as full-screen background */
+    .row {
+        position: relative;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        background-image: url('../images/login-pic.jpg'); /* Target exact burger image */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    /* Create dark overlay with blur effect */
+    .row::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        z-index: 1;
+    }
+
+    /* Center and elevate login form above blurred background */
+    .col-md-6:not(:has(img)),
+    .card,
+    form {
+        position: relative;
+        z-index: 2;
+        width: 90% !important;
+        max-width: 400px;
+        margin: 20px auto !important;
+        padding: 25px !important;
+        background: rgba(255, 255, 255, 0.92) !important;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Dark mode styling for centered form container */
+    [data-bs-theme="dark"] .col-md-6:not(:has(img)),
+    [data-bs-theme="dark"] .card,
+    [data-bs-theme="dark"] form {
+        background: rgba(33, 37, 41, 0.92) !important;
+        color: #fff;
+    }
 }

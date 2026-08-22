@@ -5,8 +5,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (filterButtons.length > 0 && recipeItems.length > 0) {
         filterButtons.forEach(button => {
-            button.addEventListener("click", function () {
-                
+            button.addEventListener("click", function (e) {
+                // Buttons/links are progressively enhanced: if JS is running,
+                // filter instantly client-side instead of reloading via the href.
+                e.preventDefault();
+
                 filterButtons.forEach(btn => {
                     btn.classList.remove("btn-success", "fw-bold");
                     btn.classList.add("btn-outline-secondary");

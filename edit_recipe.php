@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'includes/db.php';
+include 'includes/security.php';
 
 if (!isset($_SESSION['user_id'])) {
     header("Location: auth/login.php");
@@ -29,30 +30,32 @@ if (!$is_owner && !$is_admin) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $title        = trim($_POST['title']);
+    verify_csrf();
+    $error = '';
+    $title        = trim($_POST['title'] ?? '');
     $cuisine      = trim($_POST['cuisine'] ?? '');
     $cooking_time = intval($_POST['cooking_time'] ?? 0);
-    $ingredients  = trim($_POST['ingredients']);
-    $instructions = trim($_POST['instructions']);
+    $ingredients  = trim($_POST['ingredients'] ?? '');
+    $instructions = trim($_POST['instructions'] ?? '');
     $final_image  = $recipe['image_url'];
 
-    if (isset($_FILES['image_file']) && $_FILES['image_file']['error'] === UPLOAD_ERR_OK) {
-        $upload_dir = 'images/uploads/'; 
-        if (!is_dir($upload_dir)) {
-            mkdir($upload_dir, 0777, true);
+    try {
+        $uploaded = upload_recipe_image($_FILES['image_file'] ?? []);
+        if ($uploaded !== '') {
+            $final_image = $uploaded;
+        } elseif (!empty(trim($_POST['image_url'] ?? ''))) {
+            $candidate = trim($_POST['image_url']);
+            $parts = parse_url($candidate);
+            if (!filter_var($candidate, FILTER_VALIDATE_URL) || !isset($parts['scheme']) || !in_array(strtolower($parts['scheme']), ['http', 'https'], true)) {
+                throw new RuntimeException('Please enter a valid HTTP/HTTPS image URL.');
+            }
+            $final_image = $candidate;
         }
-        $file_ext     = pathinfo($_FILES['image_file']['name'], PATHINFO_EXTENSION);
-        $new_filename = time() . '_' . uniqid() . '.' . $file_ext;
-        $target_path  = $upload_dir . $new_filename;
-
-        if (move_uploaded_file($_FILES['image_file']['tmp_name'], $target_path)) {
-            $final_image = $target_path;
-        }
-    } elseif (!empty(trim($_POST['image_url']))) {
-        $final_image = trim($_POST['image_url']);
+    } catch (Throwable $e) {
+        $error = $e->getMessage();
     }
 
-    if (!empty($title) && !empty($ingredients) && !empty($instructions)) {
+    if ($error === '' && $title !== '' && strlen($title) <= 255 && strlen($cuisine) <= 100 && $ingredients !== '' && $instructions !== '' && strlen($ingredients) <= 10000 && strlen($instructions) <= 15000 && $cooking_time > 0 && $cooking_time <= 1440) {
         $update_stmt = $conn->prepare("UPDATE recipes SET title = ?, cuisine = ?, cooking_time = ?, image_url = ?, ingredients = ?, instructions = ? WHERE id = ?");
         $update_stmt->bind_param("ssisssi", $title, $cuisine, $cooking_time, $final_image, $ingredients, $instructions, $recipe_id);
         
@@ -61,6 +64,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header("Location: recipes.php?status=updated");
             exit();
         }
+        $error = 'Could not update the recipe.';
+        $update_stmt->close();
     }
 }
 
@@ -94,6 +99,8 @@ if (!filter_var($currentImg, FILTER_VALIDATE_URL) && !empty($currentImg)) {
                 </div>
 
                 <form action="edit_recipe.php?id=<?php echo $recipe_id; ?>" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars(csrf_token()); ?>">
+                    <?php if (!empty($error)): ?><div class="alert alert-danger"><?php echo htmlspecialchars($error); ?></div><?php endif; ?>
                     
                     <div class="mb-3">
                         <label class="form-label fw-semibold">Recipe Title <span class="text-danger">*</span></label>

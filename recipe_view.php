@@ -1,12 +1,15 @@
 <?php 
 session_start(); 
 include 'includes/db.php'; 
+include 'includes/functions.php'; 
 
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $recipe_id = intval($_GET['id']);
-    
-    $sql = "SELECT * FROM recipes WHERE id = $recipe_id";
-    $result = $conn->query($sql);
+
+    $stmt = $conn->prepare("SELECT * FROM recipes WHERE id = ?");
+    $stmt->bind_param("i", $recipe_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
     
     if ($result && $result->num_rows > 0) {
         $recipe = $result->fetch_assoc();
@@ -19,19 +22,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     exit();
 }
 
-$imgSrc = $recipe['image_url'];
-
-if (strpos($imgSrc, 'assets/') === 0) {
-    $imgSrc = str_replace('assets/', '', $imgSrc);
-}
-
-if (!filter_var($imgSrc, FILTER_VALIDATE_URL)) { 
-    if (strpos($imgSrc, 'uploads/') !== 0 && strpos($imgSrc, 'images/') !== 0) {
-        $imgSrc = 'images/' . $imgSrc;
-    } elseif (strpos($imgSrc, 'uploads/') === 0) {
-        $imgSrc = 'images/' . $imgSrc;
-    }
-}
+$imgSrc = resolve_recipe_image($recipe['image_url']);
 ?>
 <!DOCTYPE html>
 <html lang="en">

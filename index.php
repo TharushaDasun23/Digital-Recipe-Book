@@ -131,7 +131,6 @@ if (isset($_GET['search']) && !empty(trim($_GET['search']))) {
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/transition.js"></script>
     <script src="js/hover.js"></script>
     <script src="js/scroll.js"></script>
     <script src="js/validation.js"></script>

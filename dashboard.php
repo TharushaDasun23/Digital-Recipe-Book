@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'includes/db.php';
+include 'includes/security.php';
 
 // Security Check: Redirect to login if not logged in
 if (!isset($_SESSION['user_id'])) {
@@ -29,6 +30,7 @@ $is_admin = ($role === 'admin');
 
 // Handle contact message deletion if requested by admin
 if ($is_admin && $_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_message_id'])) {
+    verify_csrf();
     $msg_id = intval($_POST['delete_message_id']);
     $del_stmt = $conn->prepare("DELETE FROM messages WHERE id = ?");
     $del_stmt->bind_param("i", $msg_id);
@@ -213,7 +215,8 @@ if ($is_admin) {
                                         <td class="text-muted small"><?php echo $m['created_at']; ?></td>
                                         <td>
                                             <form method="POST" action="dashboard.php" onsubmit="return confirm('Are you sure you want to delete this message?');" style="display:inline;">
-                                                <input type="hidden" name="delete_message_id" value="<?php echo $m['id']; ?>">
+                                                <input type="hidden" name="delete_message_id" value="<?php echo (int)$m['id']; ?>">
+                                                <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars(csrf_token()); ?>">
                                                 <button type="submit" class="btn btn-danger btn-sm rounded-pill px-3">Delete</button>
                                             </form>
                                         </td>

@@ -1,6 +1,8 @@
 <?php
 session_start();
 include 'includes/db.php';
+include 'includes/security.php';
+include 'includes/functions.php';
 
 // Security Check: Redirect unauthenticated users to the login page
 if (!isset($_SESSION['user_id'])) {
@@ -89,6 +91,10 @@ if (!empty($search_query) && !empty($selected_cuisine)) {
     </nav>
 
     <div class="container my-5">
+        <?php if (isset($_GET['status'])): ?>
+            <?php $messages = ['created'=>'Recipe added successfully.', 'updated'=>'Recipe updated successfully.', 'success'=>'Recipe deleted successfully.', 'unauthorized'=>'You are not allowed to change that recipe.', 'notfound'=>'Recipe not found.', 'error'=>'Something went wrong.']; ?>
+            <?php if (isset($messages[$_GET['status']])): ?><div class="alert <?php echo in_array($_GET['status'], ['created','updated','success'], true) ? 'alert-success' : 'alert-warning'; ?> alert-dismissible fade show" role="alert"><?php echo htmlspecialchars($messages[$_GET['status']]); ?><button type="button" class="btn-close" data-bs-dismiss="alert"></button></div><?php endif; ?>
+        <?php endif; ?>
         
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
             <div>
@@ -103,12 +109,12 @@ if (!empty($search_query) && !empty($selected_cuisine)) {
                     </a>
                 <?php endif; ?>
                 
-                <form action="recipes.php" method="GET" class="d-flex" style="max-width: 320px;">
+                <form action="recipes.php" method="GET" class="d-flex" id="searchForm" style="max-width: 320px;">
                     <?php if (!empty($selected_cuisine)): ?>
                         <input type="hidden" name="cuisine" value="<?php echo htmlspecialchars($selected_cuisine); ?>">
                     <?php endif; ?>
                     <div class="input-group">
-                        <input type="text" name="search" class="form-control rounded-start-pill px-3" placeholder="Search recipes..." value="<?php echo htmlspecialchars($search_query); ?>">
+                        <input type="text" name="search" id="searchInput" class="form-control rounded-start-pill px-3" placeholder="Search recipes..." value="<?php echo htmlspecialchars($search_query); ?>">
                         <button type="submit" class="btn btn-success rounded-end-pill px-3">Search</button>
                     </div>
                 </form>
@@ -117,7 +123,8 @@ if (!empty($search_query) && !empty($selected_cuisine)) {
 
         <div class="category-scroll mb-4">
             <a href="recipes.php<?php echo !empty($search_query) ? '?search=' . urlencode($search_query) : ''; ?>" 
-               class="btn btn-sm me-2 rounded-pill <?php echo empty($selected_cuisine) ? 'btn-success fw-bold' : 'btn-outline-secondary'; ?>">
+               class="btn btn-sm me-2 rounded-pill filter-btn <?php echo empty($selected_cuisine) ? 'btn-success fw-bold' : 'btn-outline-secondary'; ?>"
+               data-filter="all">
                All Categories
             </a>
 
@@ -132,7 +139,8 @@ if (!empty($search_query) && !empty($selected_cuisine)) {
                     }
             ?>
                     <a href="<?php echo $url; ?>" 
-                       class="btn btn-sm me-2 rounded-pill <?php echo $is_active ? 'btn-success fw-bold shadow-sm' : 'btn-outline-secondary'; ?>">
+                       class="btn btn-sm me-2 rounded-pill filter-btn <?php echo $is_active ? 'btn-success fw-bold shadow-sm' : 'btn-outline-secondary'; ?>"
+                       data-filter="<?php echo htmlspecialchars($c_name); ?>">
                        <?php echo htmlspecialchars($c_name); ?>
                     </a>
             <?php 
@@ -158,19 +166,7 @@ if (!empty($search_query) && !empty($selected_cuisine)) {
             <?php 
             if ($result && $result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
-                    $imgSrc = $row['image_url'];
-
-                    if (strpos($imgSrc, 'assets/') === 0) {
-                        $imgSrc = str_replace('assets/', '', $imgSrc);
-                    }
-
-                    if (!filter_var($imgSrc, FILTER_VALIDATE_URL)) { 
-                        if (strpos($imgSrc, 'uploads/') !== 0 && strpos($imgSrc, 'images/') !== 0) {
-                            $imgSrc = 'images/' . $imgSrc; 
-                        } elseif (strpos($imgSrc, 'uploads/') === 0) {
-                            $imgSrc = 'images/' . $imgSrc;
-                        }
-                    }
+                    $imgSrc = resolve_recipe_image($row['image_url']);
 
                     $can_edit_delete = false;
                     if (isset($_SESSION['user_id'])) {
@@ -184,7 +180,7 @@ if (!empty($search_query) && !empty($selected_cuisine)) {
                         }
                     }
             ?>
-                    <div class="col-md-3 col-sm-6">
+                    <div class="col-md-3 col-sm-6 recipe-item" data-category="<?php echo htmlspecialchars($row['cuisine'] ?? ''); ?>">
                         <div class="card recipe-card h-100 border-0 shadow-sm rounded-4 overflow-hidden bg-body p-3">
                             <img src="<?php echo htmlspecialchars($imgSrc); ?>" class="card-img-top rounded-4" alt="<?php echo htmlspecialchars($row['title']); ?>" style="height: 180px; object-fit: cover;">
                             
@@ -201,7 +197,7 @@ if (!empty($search_query) && !empty($selected_cuisine)) {
                                     <?php if ($can_edit_delete): ?>
                                         <div class="d-flex gap-2 mt-2 pt-2 border-top">
                                             <a href="edit_recipe.php?id=<?php echo $row['id']; ?>" class="btn btn-outline-warning btn-sm w-50 rounded-pill fw-semibold">Edit</a>
-                                            <a href="delete_recipe.php?id=<?php echo $row['id']; ?>" class="btn btn-outline-danger btn-sm w-50 rounded-pill fw-semibold" onclick="return confirm('Are you sure you want to delete this recipe?');">Delete</a>
+                                            <form action="delete_recipe.php" method="POST" class="w-50" onsubmit="return confirm('Are you sure you want to delete this recipe?');"><input type="hidden" name="id" value="<?php echo (int)$row['id']; ?>"><input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars(csrf_token()); ?>"><button type="submit" class="btn btn-outline-danger btn-sm w-100 rounded-pill fw-semibold">Delete</button></form>
                                         </div>
                                     <?php endif; ?>
                                 </div>
@@ -224,8 +220,10 @@ if (!empty($search_query) && !empty($selected_cuisine)) {
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/transition.js"></script>
     <script src="js/hover.js"></script>
     <script src="js/scroll.js"></script>
+    <script src="js/filter.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/validation.js"></script>
 </body>
 </html>

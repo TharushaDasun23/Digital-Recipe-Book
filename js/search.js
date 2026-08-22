@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Real-time keyup filtering
-    if (searchInput && recipeItems.length > 4) {
+    if (searchInput && recipeItems.length > 0) {
         searchInput.addEventListener("keyup", function () {
             const query = searchInput.value.toLowerCase().trim();
             filterRecipes(query);
@@ -51,9 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
         
-            if (recipeItems.length > 4) {
-                e.preventDefault();
-            }
+            // Allow normal GET submission so database-side search always works.
         });
     }
 });
