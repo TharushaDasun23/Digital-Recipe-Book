@@ -219,6 +219,12 @@ if (!empty($search_query) && !empty($selected_cuisine)) {
         <p class="text-muted mb-0">Copyright &copy; 2026 VeganFood. All rights reserved.</p>
     </footer>
 
+        <button id="scrollTopBtn" class="btn btn-success rounded-circle shadow d-none" 
+            style="position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; z-index: 999;" 
+            title="Scroll to top">
+        ↑
+    </button>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/hover.js"></script>
     <script src="js/scroll.js"></script>
