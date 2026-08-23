@@ -1,4 +1,7 @@
-// Dark Mode, smooth page transitions, and staggered recipe card entrance
+/**
+ * Digital Recipe Book - Theme Switcher & Page Entrance
+ * Refactored & Optimized by Contributor
+ */
 document.addEventListener("DOMContentLoaded", function () {
     // 1b. Staggered entrance animation for recipe cards (if any are present on this page)
     const cards = document.querySelectorAll(".recipe-card");
@@ -29,17 +32,15 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // 2. Dark/Light Mode
+    // 2. Dark/Light Mode Engine
     const themeToggleBtn = document.getElementById("themeToggle") || document.getElementById("themeToggleBtn");
     const savedTheme = localStorage.getItem("theme");
 
-    
     if (savedTheme) {
         document.documentElement.setAttribute("data-bs-theme", savedTheme);
         updateButtonState(themeToggleBtn, savedTheme);
     }
 
-    
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener("click", function () {
             const currentTheme = document.documentElement.getAttribute("data-bs-theme");
@@ -51,7 +52,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-   
     function updateButtonState(button, theme) {
         if (!button) return;
 

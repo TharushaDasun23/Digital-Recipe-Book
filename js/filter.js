@@ -15,14 +15,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     btn.classList.add("btn-outline-secondary");
                 });
                 
-                
                 this.classList.remove("btn-outline-secondary");
                 this.classList.add("btn-success", "fw-bold");
 
                 const selectedFilter = this.getAttribute("data-filter");
                 let visibleIndex = 0;
 
-                
                 recipeItems.forEach(item => {
                     const category = item.getAttribute("data-category");
 
@@ -31,8 +29,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         // Re-trigger staggered animation when filter is applied
                         item.style.animation = "none";
                         item.offsetHeight; // Force reflow
-                        item.style.animation = `fadeInUp 0.5s ease-out forwards`;
-                        item.style.animationDelay = `${visibleIndex * 0.08}s`;
+                        item.style.animation = fadeInUp 0.5s ease-out forwards;
+                        item.style.animationDelay = ${visibleIndex * 0.08}s;
                         visibleIndex++;
                     } else {
                         item.style.display = "none";
