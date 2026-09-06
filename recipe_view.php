@@ -58,7 +58,7 @@ $imgSrc = resolve_recipe_image($recipe['image_url']);
                     
                     <?php if (isset($_SESSION['user_id'])): ?>
                         <li class="nav-item my-2 my-lg-0 ms-lg-3 me-lg-2 text-secondary fw-semibold">
-                            Hi, <?php echo htmlspecialchars($_SESSION['user_name'] ?? ''); ?>
+                            Hi, <?php echo htmlspecialchars($_SESSION['user_name'] ?? $_SESSION['username'] ?? $_SESSION['name'] ?? 'User'); ?>
                         </li>
                         <li class="nav-item">
                             <a class="btn btn-danger text-white px-4 rounded-pill shadow-sm btn-sm" href="auth/logout.php">Logout</a>
@@ -84,17 +84,17 @@ $imgSrc = resolve_recipe_image($recipe['image_url']);
             </p>
         </div>
 
-        <div class="row g-4">
+        <div class="row g-4 align-items-start">
             <div class="col-lg-6">
-                <div class="card border-0 shadow-sm rounded-4 p-3 bg-body h-100 d-flex flex-column justify-content-between">
-                    <div class="rounded-4 overflow-hidden mb-3 flex-grow-1 d-flex align-items-center justify-content-center bg-body-tertiary" style="min-height: 400px;">
-                        <img src="<?php echo htmlspecialchars($imgSrc); ?>" alt="<?php echo htmlspecialchars($recipe['title']); ?>" class="img-fluid w-100" style="object-fit: cover; max-height: 450px; border-radius: 12px;">
+                <div class="card border-0 shadow-sm rounded-4 p-3 bg-body">
+                    <div class="rounded-4 overflow-hidden bg-body-tertiary" style="height: 280px; aspect-ratio: 16/9;">
+                        <img src="<?php echo htmlspecialchars($imgSrc); ?>" alt="<?php echo htmlspecialchars($recipe['title']); ?>" class="img-fluid w-100 h-100" style="object-fit: cover; border-radius: 12px;">
                     </div>
                 </div>
             </div>
 
             <div class="col-lg-6">
-                <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5 bg-body-secondary h-100">
+                <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5 bg-body-secondary">
                     
                     <div class="d-flex align-items-center border-bottom border-2 border-success-subtle pb-2 mb-4">
                         <span class="bg-success text-white rounded-circle p-2 me-3 d-inline-flex align-items-center justify-content-center shadow-sm" style="width: 40px; height: 40px;">🥗</span>
