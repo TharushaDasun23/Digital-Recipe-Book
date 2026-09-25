@@ -13,7 +13,7 @@
 
 ## 2.	Recipe View
 
-•	**Visual & Temporal Data:** Contains dedicated metadata headers for recipe nomenclature (e.g., Chicken Kottu Roti), local origin variables, prep times, and total serving yields. 
+•	**Visual & Temporal Data:** Contains dedicated metadata headers for recipe nomenclature (e.g.,   Kottu Roti), local origin variables, prep times, and total serving yields. 
 
 •	**Relational Ingredients Dataset:** A clean, dual-column layout mapping system designed to fetch metric amounts (grams, stalks, spoons) dynamically from the MySQL database. 
 
